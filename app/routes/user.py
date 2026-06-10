@@ -34,7 +34,7 @@ def register():
                 user_fName=form.FirstName.data,
                 user_lName=form.LastName.data,
                 user_email=form.Email.data,
-                user_pswd=generate_password_hash(form.Password.data)
+                user_pswd = generate_password_hash(form.Password.data, method='pbkdf2:sha256')
             )
             db.session.add(new_user)
             db.session.commit()
